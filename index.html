@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Juego AR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body>
+    <div id="ui">
+      <button id="shoot"> Disparar</button>
+      <div id="score">Puntos: 0</div>
+      <div id="timer">Tiempo: 30</div>
+    </div>
+
+    <a-scene embedded arjs>
+      <!-- Enemigo 1 (Hiro) -->
+      <a-marker preset="hiro">
+        <a-box id="enemy1" color="red" depth="1" height="1" width="1" position="0 0.5 0"></a-box>
+      </a-marker>
+
+      <!-- Enemigo 2 (Kanji) -->
+      <a-marker preset="kanji">
+        <a-sphere id="enemy2" color="blue" radius="0.5" position="0 0.5 0"></a-sphere>
+      </a-marker>
+
+      <!-- Enemigo 3 (Letter A personalizado) -->
+      <a-marker type="pattern" url="markers/letterA.patt">
+        <a-cone id="enemy3" color="green" radius-bottom="0.5" height="1" position="0 0.5 0"></a-cone>
+      </a-marker>
+
+      <!-- Camara -->
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <script src="script.js"></script>
+  </body>
+</html>
